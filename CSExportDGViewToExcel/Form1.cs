@@ -24,6 +24,9 @@ namespace CSExportDGViewToExcel
 {
     public partial class Form1 : Form
     {
+        //Getting the location and file name of the excel to save from user.
+        SaveFileDialog saveDialog = new SaveFileDialog();        
+
         public Form1()
         {
             InitializeComponent();
@@ -61,16 +64,14 @@ namespace CSExportDGViewToExcel
         /// Exports the datagridview values to Excel.
         /// </summary>
         private void ExportToExcel()
-        {
+        {           
 
-            XLWorkbook Workbook = new XLWorkbook("C:\\ERP_Monitoring.xlsx");
-            var worksheet = Workbook.Worksheet("ERPREPORT");
-
+            XLWorkbook Workbook = new XLWorkbook();
+            Workbook.AddWorksheet("Sheet1");
+            var worksheet = Workbook.Worksheet("Sheet1");
 
             try
             {
-                //worksheet.Name = "ExportedFromDatGrid";
-
                 int cellRowIndex = 1;
                 int cellColumnIndex = 1;
 
@@ -94,12 +95,8 @@ namespace CSExportDGViewToExcel
                     cellRowIndex++;
                 }
 
-                Workbook.Save();
-
-                //Getting the location and file name of the excel to save from user.
-                SaveFileDialog saveDialog = new SaveFileDialog();
                 saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-                saveDialog.FilterIndex = 2;                
+                saveDialog.FilterIndex = 2;
 
                 if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -114,7 +111,7 @@ namespace CSExportDGViewToExcel
             finally
             {
                 System.Diagnostics.Process ps = new System.Diagnostics.Process();
-                ps.StartInfo.FileName = "C:\\ERP_Monitoring.xlsx";
+                ps.StartInfo.FileName = saveDialog.FileName + ".xlsx";
                 ps.Start();
                 ps.Dispose();
             }
