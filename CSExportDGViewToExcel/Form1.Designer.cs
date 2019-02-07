@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dgvCityDetails = new System.Windows.Forms.DataGridView();
-            this.btnExport = new System.Windows.Forms.Button();
             this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCityDetails)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,20 +43,10 @@
             this.City,
             this.State,
             this.Country});
-            this.dgvCityDetails.Location = new System.Drawing.Point(12, 12);
+            this.dgvCityDetails.Location = new System.Drawing.Point(14, 11);
             this.dgvCityDetails.Name = "dgvCityDetails";
-            this.dgvCityDetails.Size = new System.Drawing.Size(424, 359);
+            this.dgvCityDetails.Size = new System.Drawing.Size(495, 331);
             this.dgvCityDetails.TabIndex = 0;
-            // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(303, 387);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(133, 96);
-            this.btnExport.TabIndex = 1;
-            this.btnExport.Text = "Export to Excel";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // City
             // 
@@ -73,11 +63,21 @@
             this.Country.HeaderText = "Country";
             this.Country.Name = "Country";
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(353, 357);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(155, 89);
+            this.btnExport.TabIndex = 1;
+            this.btnExport.Text = "Export to Excel.";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 500);
+            this.ClientSize = new System.Drawing.Size(523, 462);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.dgvCityDetails);
             this.Name = "Form1";
